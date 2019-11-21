@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.js"></script>
+</head>
+<body>
+    <section id="app">
+        <input type="text" v-model="params.nickName" placeholder="昵称">
+        <input type="text" v-model="params.email" placeholder="email">
+        <input type="text" v-model="params.telphone" placeholder="电话">
+        <input type="password" v-model="params.password" placeholder="密码">
+        <button @click="sibmit">立即注册</button>
+    </section>
+</body>
+<script>
+ new Vue({
+  el:"#app",
+  data(){
+      return {
+        params:{
+            nickName:"",
+            email:"",
+            telphone:"",
+            password:""
+        }
+      }
+  },
+  methods:{
+    sibmit(){
+        console.log(this.params);
+        axios.post("/admin/signin",this.params).then(res=>{
+            console.log(res);
+        })
+    }
+  }
+ })
+</script>
+</html>
