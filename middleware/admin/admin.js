@@ -12,6 +12,8 @@ exports.signin = (req,res)=>{
             updateUser:req.body.nickName
         }
     )
-    console.log(req.body);
-    res.send('我是用来注册的')
+    res.json({
+        code:200,
+        message:"注册成功"
+    })
 } 
